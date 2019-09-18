@@ -22,7 +22,7 @@ no = Node(0, 0, galao1.getCurrentQuantity(), galao2.getCurrentQuantity(), galao3
 galao1.transfer(galao2)
 
 no2 = Node(1, no, galao1.getCurrentQuantity(), galao2.getCurrentQuantity(), galao3.getCurrentQuantity())
-no.child.append(no2)
+no.children.append(no2)
 
 galao1.showInformation()
 galao2.showInformation()
@@ -30,7 +30,7 @@ galao2.showInformation()
 print("Volta o No")
 
 no2.fillBottles(galao1, galao2, galao3)
-no.child[0].fillBottles(galao1, galao2, galao3)
+no.children[0].fillBottles(galao1, galao2, galao3)
 
 galao1.showInformation()
 galao2.showInformation()

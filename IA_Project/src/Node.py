@@ -6,12 +6,15 @@ class Node:
         self.bottleQuantity = [bottle1, bottle2, bottle3]
         self.id = identity
         self.father = father_node
-        self.child = []
+        self.children = []
 
     def fillBottles(self, bottle1, bottle2, bottle3):
         bottle1.setCurrentQuantity(self.bottleQuantity[0])
         bottle2.setCurrentQuantity(self.bottleQuantity[1])
         bottle3.setCurrentQuantity(self.bottleQuantity[2])
+
+    def add_child(self, child):
+        self.children.append(child)
 
 
 
