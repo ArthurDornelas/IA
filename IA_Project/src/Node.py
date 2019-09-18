@@ -2,15 +2,16 @@ from src.Bottle import Bottle
 
 class Node:
 
-    def __init__(self, bottle1, bottle2, bottle3):
-        self.bottle_1 = bottle1
-        self.bottle_2 = bottle2
-        self.bottle_3 = bottle3
+    def __init__(self, identity, father_node, bottle1, bottle2, bottle3):
+        self.bottleQuantity = [bottle1, bottle2, bottle3]
+        self.id = identity
+        self.father = father_node
+        self.child = []
 
     def fillBottles(self, bottle1, bottle2, bottle3):
-        bottle1.setCurrentQuantity(self.bottle_1)
-        bottle2.setCurrentQuantity(self.bottle_2)
-        bottle3.setCurrentQuantity(self.bottle_3)
+        bottle1.setCurrentQuantity(self.bottleQuantity[0])
+        bottle2.setCurrentQuantity(self.bottleQuantity[1])
+        bottle3.setCurrentQuantity(self.bottleQuantity[2])
 
 
 
