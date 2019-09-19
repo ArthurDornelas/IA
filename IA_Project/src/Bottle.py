@@ -34,6 +34,9 @@ class Bottle:
     def setCurrentQuantity(self, new_quantity):
         self.current_quantity = new_quantity
 
+    def fillBottle(self):
+        self.current_quantity = self.capacity
+
     def showInformation(self):
         print('Total capacity: {}'.format(self.capacity))
         print('Current quantity: {} \n'.format(self.current_quantity))

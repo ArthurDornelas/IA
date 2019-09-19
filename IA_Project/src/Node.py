@@ -3,7 +3,8 @@ from src.Bottle import Bottle
 class Node:
 
     def __init__(self, identity, father_node, bottle1, bottle2, bottle3):
-        self.bottleQuantity = [bottle1, bottle2, bottle3]
+        self.bottleQuantity = [bottle1.getCurrentQuantity, bottle2.getCurrentQuantity, bottle3.getCurrentQuantity]
+        self.bottleCapacity = [bottle1.getCapacity, bottle2.getCapacity, bottle3.getCapacity]     # não sei se irá usar
         self.id = identity
         self.father = father_node
         self.children = []

@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 from src.Bottle import Bottle
 from src.Node import Node
 
-#MAIN BEGIN
+# MAIN BEGIN
 
 galao1 = Bottle(8, 8)
 galao2 = Bottle(5, 0)
@@ -26,6 +26,7 @@ no.children.append(no2)
 
 galao1.showInformation()
 galao2.showInformation()
+
 
 print("Volta o No")
 
