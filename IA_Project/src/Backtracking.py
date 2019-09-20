@@ -21,45 +21,74 @@ class Backtracking:
         self.root_node = Node(0, None, bottle1, bottle2, bottle3)
 
     def start(self):
-        self.sucess = False
+        self.success = False
         node = self.root_node
 
         while(self.sucess != True):
 
             # Quando se chega no estado de sucesso
-            if(self.bottles[0].getCurrentQuantity() == 4 and self.bottles[1].getCurrentQuantity() == 4 and self.bottles[2].getCurrentQuantity() == 0):
+            if(self.is_success(node)):
                 self.sucess = True
                 break
 
-            elif(self.bottles[0].transfer(self.bottles[1]) != 0):
+            elif(self.rule_1() == 1 ):
                 new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
                 node.add_child(new_node)
+                node = new_node
 
-        if self.sucess == True:
+            elif(self.rule_2() == 1 ):
+                new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
+                node.add_child(new_node)
+                node = new_node
+
+            elif(self.rule_3() == 1 ):
+                new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
+                node.add_child(new_node)
+                node = new_node
+
+            elif (self.rule_4() == 1 ):
+                new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
+                node.add_child(new_node)
+                node = new_node
+
+            elif (self.rule_5() == 1 ):
+                new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
+                node.add_child(new_node)
+                node = new_node
+
+            elif (self.rule_6() == 1 ):
+                new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
+                node.add_child(new_node)
+                node = new_node
+
+            else:
+                node = node.father()
+
+        if self.success == True:
             print("DEU")
 
     def ordem_crescente(self):
         print(1)
 
-    def regra1(self):
-        self.bottles[0].transfer(self.bottles[1])
+    def rule_1(self):
+        return self.bottles[0].transfer(self.bottles[1])
 
-    def regra2(self):
-        self.bottles[0].transfer(self.bottles[2])
+    def rule_2(self):
+        return self.bottles[0].transfer(self.bottles[2])
 
-    def regra3(self):
+    def rule_3(self):
         self.bottles[1].transfer(self.bottles[0])
 
-    def regra4(self):
+    def rule_4(self):
         self.bottles[1].transfer(self.bottles[2])
 
-    def regra5(self):
+    def rule_5(self):
         self.bottles[2].transfer(self.bottles[0])
 
-    def regra6(self):
+    def rule_6(self):
         self.bottles[2].transfer(self.bottles[1])
 
-    def sucess(self, node):
+    def is_success(self, node):
         node_quantity = node.get_bottles_quantity()
         if(node_quantity[0] == 4 and node_quantity[1] == 4 and node_quantity[2] == 0):
             return True
