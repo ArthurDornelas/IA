@@ -24,6 +24,7 @@ class Bottle:
         self.current_quantity -= amount_to_transfer
         current_quantity2 += amount_to_transfer
         otherBottle.setCurrentQuantity(current_quantity2)
+        return 1
 
     def getCapacity(self):
         return self.capacity
