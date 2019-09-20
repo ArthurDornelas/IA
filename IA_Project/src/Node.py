@@ -10,7 +10,7 @@ class Node:
         self.id = identity
         self.father = father_node
         self.children = []
-        self.rule = 1
+        self.rule = 0
 
     def fillBottles(self, bottle1, bottle2, bottle3):
         bottle1.setCurrentQuantity(self.bottles_quantity[0])
@@ -28,5 +28,14 @@ class Node:
     def set_rule(self, rule1):
         self.rule = rule1
 
+    def get_rule(self):
+        return self.rule
+
+    def increase_rule(self):
+        self.rule = self.rule + 1
+
     def get_bottles_quantity(self):
         return self.bottles_quantity
+
+    def get_father(self):
+        return self.father
