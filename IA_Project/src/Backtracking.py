@@ -23,73 +23,39 @@ class Backtracking:
 
     def start(self):
         node = self.root_node
-        print('teste')
+        self.caminho.append(node.get_bottles_quantity())
+        #print('teste')
         #node.show_information()
-        print('testee')
+        #print('testee')
         rules = [self.rule_1, self.rule_2, self.rule_3, self.rule_4, self.rule_5, self.rule_6]
         while node is not None and self.is_success(node) != True:
             current_rule = node.get_rule()
-            node.show_information()
-            print("regra atual: {}".format(current_rule))
+            #node.show_information()
+            #print("regra atual: {}".format(current_rule))
             if current_rule < 6 and rules[current_rule]():
-                print("aplicou regra")
+                #print("aplicou regra")
                 node.increase_rule()
                 current_bottle_quantity = [self.bottles[0].getCurrentQuantity(), self.bottles[1].getCurrentQuantity(),
                                            self.bottles[2].getCurrentQuantity()]
-                print("caminho: {}  :  {}".format(self.caminho, current_bottle_quantity))
+                #print("caminho: {}  :  {}".format(self.caminho, current_bottle_quantity))
                 if current_bottle_quantity not in self.caminho:
-                    print("cria novo no filho")
-                    self.caminho.append(node.get_bottles_quantity())
+                    #print("cria novo no filho")
                     new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
+                    self.caminho.append(current_bottle_quantity)
+                    print("caminho: {} ".format(self.caminho))
                     node.add_child(new_node)
                     node = new_node
                     self.id = self.id + 1
-                #node.fillBottles(self.bottles[0], self.bottles[1], self.bottles[2])
+                else:
+                    node.fillBottles(self.bottles[0], self.bottles[1], self.bottles[2])
             elif current_rule < 6:
-                print("nao aplicou a regra")
+                #print("nao aplicou a regra")
                 node.increase_rule()
             else:
-                print("Else")
+                #print("Else")
+                self.caminho.remove(node.get_bottles_quantity())
                 node = node.get_father()
-        print("acabou")
-            # Quando se chega no estado de sucesso
-            # if(self.is_success(node)):
-            #     self.sucess = True
-            #     break
-            #
-            # elif(self.rule_1() == 1 ):
-            #     new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
-            #     node.add_child(new_node)
-            #     node = new_node
-            #
-            # elif(self.rule_2() == 1 ):
-            #     new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
-            #     node.add_child(new_node)
-            #     node = new_node
-            #
-            # elif(self.rule_3() == 1 ):
-            #     new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
-            #     node.add_child(new_node)
-            #     node = new_node
-            #
-            # elif (self.rule_4() == 1 ):
-            #     new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
-            #     node.add_child(new_node)
-            #     node = new_node
-            #
-            # elif (self.rule_5() == 1 ):
-            #     new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
-            #     node.add_child(new_node)
-            #     node = new_node
-            #
-            # elif (self.rule_6() == 1 ):
-            #     new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
-            #     node.add_child(new_node)
-            #     node = new_node
-            #
-            # else:
-            #     node = node.father()
-
+        #print("acabou")
 
     def ordem_crescente(self):
         print(1)

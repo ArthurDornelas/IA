@@ -12,7 +12,7 @@ class Bottle:
         current_quantity2 = otherBottle.getCurrentQuantity()    # Quantidade atual do galão passado como parâmetro
 
         max_transfer = capacity2 - current_quantity2            # Determina qual a maior quantidade que pode ser transferida
-        print("mmax : {} current q: {}".format(max_transfer, self.current_quantity))
+        #print("mmax : {} current q: {}".format(max_transfer, self.current_quantity))
         if self.current_quantity <= 0 or max_transfer == 0:      # Galao Vazio ou galão2 cheio
             return 0
         #print("passou")

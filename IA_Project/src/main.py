@@ -15,7 +15,6 @@ galao3 = Bottle(3, 0)
 
 backtracking = Backtracking(galao1, galao2, galao3)
 backtracking.start()
-backtracking.show_information()
 # no = Node(0, None, galao1, galao2, galao3)
 # galao1.transfer(galao2)
 # no2 = Node(0, None, galao1, galao2, galao3)
