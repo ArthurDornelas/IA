@@ -6,7 +6,7 @@ class Node:
 
     def __init__(self, identity, father_node, bottle1, bottle2, bottle3):
         self.bottles_quantity = [bottle1.getCurrentQuantity(), bottle2.getCurrentQuantity(), bottle3.getCurrentQuantity()]
-        self.bottles_capacity = [bottle1.getCapacity, bottle2.getCapacity, bottle3.getCapacity]     # não sei se irá usar
+        self.bottles_capacity = [bottle1.getCapacity(), bottle2.getCapacity(), bottle3.getCapacity()]     # não sei se irá usar
         self.id = identity
         self.father = father_node
         self.children = []
@@ -21,9 +21,9 @@ class Node:
         self.children.append(child)
 
     def show_information(self):
-        print(self.bottles_quantity)
-        for child in self.children:
-            child.show_information()
+        print("{}  {}".format(self.id, self.bottles_quantity))
+        #for child in self.children:
+         #   child.show_information()
 
     def set_rule(self, rule1):
         self.rule = rule1
