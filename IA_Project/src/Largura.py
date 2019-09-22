@@ -42,13 +42,14 @@ class Largura:
                 else:
                     current_rule = 0
                     while current_rule < 6:
-                        if rules[current_rule]:
+                        if rules[current_rule]():
                             new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
                             node.add_child(new_node)
+                            new_node.show_information()
                             self.id = self.id + 1
                             self.abertos.append(new_node)
-                            current_rule = current_rule + 1
                             node.fillBottles(self.bottles[0], self.bottles[1], self.bottles[2])
+                            current_rule = current_rule + 1
                         else:
                             current_rule = current_rule + 1
                     self.fechados.append(node)
