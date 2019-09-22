@@ -19,22 +19,22 @@ class Backtracking:
         self.bottles = [bottle1, bottle2, bottle3]
         self.id = 1
         self.root_node = Node(0, None, bottle1, bottle2, bottle3)
-        self.caminho = []
+        self.way = []
 
     def start(self):
         node = self.root_node
-        self.caminho.append(node.get_bottles_quantity())
+        self.way.append(node.get_bottles_quantity())
         rules = [self.rule_1, self.rule_2, self.rule_3, self.rule_4, self.rule_5, self.rule_6]
-        while node is not None and self.is_success(node) != True:
+        while node is not None and not self.is_success(node):
             current_rule = node.get_rule()
             if current_rule < 6 and rules[current_rule]():
                 node.increase_rule()
-                current_bottle_quantity = [self.bottles[0].getCurrentQuantity(), self.bottles[1].getCurrentQuantity(),
+                current_bottle_quantity = [self.bottles[0].getCurrentQuantity(),
+                                           self.bottles[1].getCurrentQuantity(),
                                            self.bottles[2].getCurrentQuantity()]
-                print("current_quantity  :  {}".format(current_bottle_quantity))
-                if current_bottle_quantity not in self.caminho:
+                if current_bottle_quantity not in self.way:
                     new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
-                    self.caminho.append(current_bottle_quantity)
+                    self.way.append(current_bottle_quantity)
                     node.add_child(new_node)
                     node = new_node
                     self.id = self.id + 1
@@ -43,7 +43,7 @@ class Backtracking:
             elif current_rule < 6:
                 node.increase_rule()
             else:
-                self.caminho.remove(node.get_bottles_quantity())
+                self.way.remove(node.get_bottles_quantity())
                 node = node.get_father()
 
     def rule_1(self):
@@ -62,7 +62,7 @@ class Backtracking:
         return self.bottles[2].transfer(self.bottles[0])
 
     def rule_6(self):
-         return self.bottles[2].transfer(self.bottles[1])
+        return self.bottles[2].transfer(self.bottles[1])
 
     @staticmethod
     def is_success(node):

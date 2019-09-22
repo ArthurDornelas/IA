@@ -16,7 +16,7 @@ galao1 = Bottle(8, 8)
 galao2 = Bottle(5, 0)
 galao3 = Bottle(3, 0)
 
-lar = BFS(galao1, galao2, galao3)
+lar = Backtracking(galao1, galao2, galao3)
 lar.start()
 
 
