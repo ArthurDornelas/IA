@@ -37,7 +37,7 @@ class Backtracking:
                 node.increase_rule()
                 current_bottle_quantity = [self.bottles[0].getCurrentQuantity(), self.bottles[1].getCurrentQuantity(),
                                            self.bottles[2].getCurrentQuantity()]
-                #print("caminho: {}  :  {}".format(self.caminho, current_bottle_quantity))
+                print("current_quantity  :  {}".format(current_bottle_quantity))
                 if current_bottle_quantity not in self.caminho:
                     #print("cria novo no filho")
                     new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
@@ -47,6 +47,7 @@ class Backtracking:
                     node = new_node
                     self.id = self.id + 1
                 else:
+                    print('entrou')
                     node.fillBottles(self.bottles[0], self.bottles[1], self.bottles[2])
             elif current_rule < 6:
                 #print("nao aplicou a regra")

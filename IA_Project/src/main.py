@@ -3,6 +3,8 @@
 # from .src import Bottle
 
 from __future__ import unicode_literals
+
+from src.BFS import BFS
 from src.Bottle import Bottle
 from src.Backtracking import Backtracking
 from src.Node import Node
@@ -14,8 +16,10 @@ galao1 = Bottle(8, 8)
 galao2 = Bottle(5, 0)
 galao3 = Bottle(3, 0)
 
-lar = Largura(galao1, galao2, galao3)
+lar = BFS(galao1, galao2, galao3)
 lar.start()
+
+
 # no = Node(0, None, galao1, galao2, galao3)
 # galao1.transfer(galao2)
 # no2 = Node(0, None, galao1, galao2, galao3)

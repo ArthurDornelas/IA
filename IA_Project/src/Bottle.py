@@ -41,3 +41,6 @@ class Bottle:
     def showInformation(self):
         print('Total capacity: {}'.format(self.capacity))
         print('Current quantity: {} \n'.format(self.current_quantity))
+
+    def set_quantity(self, quantity):
+        self.current_quantity = quantity
