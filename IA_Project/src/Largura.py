@@ -1,7 +1,7 @@
 from src.Node import Node
 from src.Bottle import Bottle
 
-'''
+"""
 Regras:
 1) Transferir bottle1 -> bottle2
 2) Transferir bottle1 -> bottle3
@@ -11,11 +11,10 @@ Regras:
 6) Transferir bottle3 -> bottle2
 
 Ordem de aplicação de regras: crescente
-'''
+"""
 
 
 class Largura:
-
     def __init__(self, bottle1, bottle2, bottle3):
         self.bottles = [bottle1, bottle2, bottle3]
         self.id = 1
