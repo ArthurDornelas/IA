@@ -117,12 +117,6 @@ class BFS:
     def show_level_success_way(self):
         print("O nivel da solucao eh: {}".format(len(self.success_way) - 1))
 
-    #def print_tree(self):
-    #    node = self.root_node
-    #    while node is not None:
-    #        node.show_information()
-    #
-
     def pprint_tree(self, node, _prefix, _last):
         print(_prefix, "`- " if _last else "|- ", node.get_information(), sep="")
         _prefix += "   " if _last else "|  "
