@@ -50,6 +50,9 @@ class BFS:
                 break
         if success:
             self.show_success_way()
+            self.show_level_success_way()
+            print("\n A arvore gerada eh: \n")
+            self.pprint_tree(self.root_node, "", True)
 
     def set_bottle_quantity(self, current_quantity):
         for i in range(3):
@@ -110,3 +113,20 @@ class BFS:
     def show_success_way(self):
         self.success_way.reverse()
         print('Caminho do sucesso: {}'.format(self.success_way))
+
+    def show_level_success_way(self):
+        print("O nivel da solucao eh: {}".format(len(self.success_way) - 1))
+
+    #def print_tree(self):
+    #    node = self.root_node
+    #    while node is not None:
+    #        node.show_information()
+    #
+
+    def pprint_tree(self, node, _prefix, _last):
+        print(_prefix, "`- " if _last else "|- ", node.get_information(), sep="")
+        _prefix += "   " if _last else "|  "
+        child_count = len(node.children)
+        for i, child in enumerate(node.children):
+            _last = i == (child_count - 1)
+            self.pprint_tree(child, _prefix, _last)

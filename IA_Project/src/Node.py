@@ -25,6 +25,9 @@ class Node:
         #for child in self.children:
          #   child.show_information()
 
+    def get_information(self):
+        return self.bottles_quantity
+
     def set_rule(self, rule1):
         self.rule = rule1
 
