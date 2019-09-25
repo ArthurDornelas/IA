@@ -27,7 +27,7 @@ class BFS:
     def start(self):
         success = False
         while len(self.openedList) != 0:
-            print(self.openedList[0].get_bottles_quantity())
+            self.print_fluxograma()
             node = self.openedList.pop(0)                                   # Pega o primeiro elemento da lista
             self.set_bottle_quantity(node.get_bottles_quantity())           # Coloca a quantidade do nó atual nos galões da classe
             if not self.is_success(node):
@@ -124,3 +124,23 @@ class BFS:
         for i, child in enumerate(node.children):
             _last = i == (child_count - 1)
             self.pprint_tree(child, _prefix, _last)
+
+    def print_opened_list(self):
+        print("Lista de Abertos: ")
+        for i in self.openedList:
+            print(i.get_bottles_quantity(), end=" ")
+        print("\n")
+
+    def print_closed_list(self):
+        print("Lista de Fechados: ")
+        for j in self.closedList:
+            print(j , end=" ")
+        print("\n")
+
+    def print_fluxograma(self):
+        print("------------ Fluxograma ---------------")
+        self.print_opened_list()
+        self.print_closed_list()
+        print("Arvore Atual")
+        self.pprint_tree(self.root_node, "", True)
+        print("\n\n")
