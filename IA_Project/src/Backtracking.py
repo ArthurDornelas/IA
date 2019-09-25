@@ -47,7 +47,8 @@ class Backtracking:
                 node = node.get_father()
         self.show_success_path()
         self.show_level_success_path()
-        self.print_tree()
+        print("\n A arvore gerada eh: \n")
+        self.print_tree(self.root_node, "", True)
 
     def rule_1(self):
         return self.bottles[0].transfer(self.bottles[1])
@@ -83,9 +84,10 @@ class Backtracking:
     def show_level_success_path(self):
         print("O nivel da solucao eh: {}".format(len(self.path) - 1))
 
-    def print_tree(self):
-        print("\n A arvore gerada eh: \n")
-        i = 0
-        while i < len(self.path):
-            print("{}\n".format(self.path[i]))
-            i += 1
+    def print_tree(self, node, _prefix, _last):
+        print(_prefix, "`- " if _last else "|- ", node.get_information(), sep="")
+        _prefix += "   " if _last else "|  "
+        child_count = len(node.children)
+        for i, child in enumerate(node.children):
+            _last = i == (child_count - 1)
+            self.print_tree(child, _prefix, _last)

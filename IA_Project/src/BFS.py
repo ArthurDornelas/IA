@@ -49,6 +49,7 @@ class BFS:
                 success = True
                 break
         if success:
+            print("------------- Final ---------------")
             self.show_success_way()
             self.show_level_success_way()
             print("\n A arvore gerada eh: \n")
