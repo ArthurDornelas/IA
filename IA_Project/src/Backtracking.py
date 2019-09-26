@@ -23,6 +23,7 @@ class Backtracking:
 
     def start(self):
         node = self.root_node
+        self.print_fluxograma()
         self.path.append(node.get_bottles_quantity())
         rules = [self.rule_1, self.rule_2, self.rule_3, self.rule_4, self.rule_5, self.rule_6]
         while node is not None and not self.is_success(node):
@@ -36,6 +37,7 @@ class Backtracking:
                     new_node = Node(self.id, node, self.bottles[0], self.bottles[1], self.bottles[2])
                     self.path.append(current_bottle_quantity)
                     node.add_child(new_node)
+                    self.print_fluxograma()
                     node = new_node
                     self.id = self.id + 1
                 else:
@@ -91,3 +93,8 @@ class Backtracking:
         for i, child in enumerate(node.children):
             _last = i == (child_count - 1)
             self.print_tree(child, _prefix, _last)
+
+    def print_fluxograma(self):
+        print("----------- Fluxograma ------------")
+        self.print_tree(self.root_node, "", True)
+        print("\n")
